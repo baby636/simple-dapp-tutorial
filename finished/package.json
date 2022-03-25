@@ -9,7 +9,8 @@
     "start": "webpack-dev-server",
     "build": "webpack --mode production",
     "test": "yarn lint",
-    "prepare": "yarn test && yarn build"
+    "prepare": "yarn run snyk-protect && yarn test && yarn build",
+    "snyk-protect": "snyk-protect"
   },
   "publishConfig": {
     "access": "public"
@@ -27,7 +28,9 @@
     "url": "https://github.com/MetaMask/test-dapp/issues"
   },
   "homepage": "https://github.com/MetaMask/test-dapp#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@snyk/protect": "latest"
+  },
   "devDependencies": {
     "@metamask/eslint-config": "^2.0.0",
     "@metamask/onboarding": "^1.0.0",
@@ -41,5 +44,6 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
-  }
+  },
+  "snyk": true
 }
